@@ -33,8 +33,11 @@ public class ControladorEstudiante {
             arregloEstudiantes[i]=new Estudiante(String.valueOf(id),nombre,notaDesarrollo,notaMatematicas);
         }
         
-       double notaLimite = vista.SolicitarNotaLimite();
-       generarreporte(notaLimite);
+      double notaLimite = vista.SolicitarNotaLimite();
+      double incremento = vista.SolicitarIncremento();
+      incrementarNotaDesarrollo(incremento);
+      generarreporte(notaLimite);
+
     }
 
     
