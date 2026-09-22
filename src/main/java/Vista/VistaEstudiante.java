@@ -59,6 +59,25 @@ public double SolicitarNotaLimite() {
     return notaLimite;
 }
 
+public double SolicitarIncremento() {
+
+    double incremento = -1;
+
+    while (incremento < 0.0 || incremento > 0.5) {
+        String input = JOptionPane.showInputDialog("Ingrese el incremento de Desarrollo entre 0.0 y 0.5:");
+        incremento = Double.parseDouble(input);
+
+        if (incremento < 0.0 || incremento > 0.5) {
+
+            JOptionPane.showMessageDialog(
+                    null,
+                    "El incremento debe estar entre 0.0 y 0.5"
+            );
+        }
+    }
+
+    return incremento;
+}
 
 }
   

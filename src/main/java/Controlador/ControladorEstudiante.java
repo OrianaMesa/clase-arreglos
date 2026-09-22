@@ -56,4 +56,19 @@ public class ControladorEstudiante {
     vista.mensaje(reporte);
 }
     
+   public void incrementarNotaDesarrollo(double incremento) {
+       for (int i = 0; i < arregloEstudiantes.length; i++) {
+        Estudiante est = arregloEstudiantes[i];
+        double nuevaNota = est.getNotaDesarrollo() + incremento;
+        
+        if (nuevaNota > 5.0) {
+            est.setNotaDesarrollo(5.0); // Tope máximo permitido inferior o igual a 5.0
+        } else {
+            est.setNotaDesarrollo(nuevaNota);
+        }
+    }
+    vista.mensaje("Se ha aplicado el incremento a la nota de Desarrollo exitosamente.");
 }
+}
+
+
