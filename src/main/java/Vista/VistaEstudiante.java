@@ -40,5 +40,11 @@ public class VistaEstudiante {
         JOptionPane.showMessageDialog(null, mensaje);
         
     }
+    
+    public double SolicitarNotaLimite() {
+    String input = JOptionPane.showInputDialog("Ingrese la nota límite (debe estar entre 0.0 y 4.9): ");
+    return Double.parseDouble(input);
+    }
+
 }
   
