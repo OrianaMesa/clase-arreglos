@@ -3,7 +3,8 @@
  */
 
 package com.mycompany.estudiantetecnologia;
-
+import Controlador.ControladorEstudiante;
+import Vista.VistaEstudiante;
 /**
  *
  * @author orian
@@ -11,7 +12,11 @@ package com.mycompany.estudiantetecnologia;
 public class EstudianteTecnologia {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+         VistaEstudiante vista = new VistaEstudiante();
+        ControladorEstudiante controlador =new ControladorEstudiante(vista);
+
+        controlador.iniciar();
     }
-    
 }
+
+
