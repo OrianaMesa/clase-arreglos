@@ -41,10 +41,24 @@ public class VistaEstudiante {
         
     }
     
-    public double SolicitarNotaLimite() {
-    String input = JOptionPane.showInputDialog("Ingrese la nota límite (debe estar entre 0.0 y 4.9): ");
-    return Double.parseDouble(input);
+public double SolicitarNotaLimite() {
+
+    double notaLimite = -1;
+    while (notaLimite < 0.0 || notaLimite > 4.9) {
+        String input = JOptionPane.showInputDialog(
+                "Ingrese la nota límite entre 0.0 y 4.9:"
+        );
+
+        notaLimite = Double.parseDouble(input);
+
+        if (notaLimite < 0.0 || notaLimite > 4.9) {
+
+            JOptionPane.showMessageDialog(null, "La nota debe estar entre 0.0 y 4.9");
+        }
     }
+    return notaLimite;
+}
+
 
 }
   
