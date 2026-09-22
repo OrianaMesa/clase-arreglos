@@ -33,20 +33,27 @@ public class ControladorEstudiante {
             arregloEstudiantes[i]=new Estudiante(String.valueOf(id),nombre,notaDesarrollo,notaMatematicas);
         }
         
-        generarreporte();
-        
+       double notaLimite = vista.SolicitarNotaLimite();
+       generarreporte(notaLimite);
     }
+
     
-    private void generarreporte(){
-        String reporte = "reporte de estudiantes";
-        for(int i=0; i<arregloEstudiantes.length;i++){
-            Estudiante est= arregloEstudiantes[i];
-            reporte +="Id: "+est.getId();
-            reporte +="Nombre: "+est.getNombre();
-            reporte +="Nota definitiva: "+est.calcularDefinitiva();
-            reporte +="Id: "+est.getId();
-            reporte +="Estado: "+est.getId();
+    private void generarreporte(double notaLimite) {
+
+    String reporte = "Reporte de estudiantes\n\n";
+
+    for (int i = 0; i < arregloEstudiantes.length; i++) {
+        Estudiante est = arregloEstudiantes[i];
+        double definitiva = est.calcularDefinitiva();
+        if (definitiva > notaLimite) {
+            reporte += "Código: " + est.getId() + "\n";
+            reporte += "Nombre: " + est.getNombre() + "\n";
+            reporte += "Nota definitiva: " + definitiva + "\n";
+            reporte += "-----------------------------\n";
         }
     }
+
+    vista.mensaje(reporte);
+}
     
 }
